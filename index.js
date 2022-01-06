@@ -1,6 +1,6 @@
 // TODO: Include packages needed for this application
-const inquirer = require('inquirer');
-const fs = require('fs');
+const { prompt } = require('inquirer');
+const { writeFile } = require('fs').promises;
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -37,16 +37,31 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+async function writeToFile(fileName, data) {
+  const filePath = `./output/${fileName}`;
+  try {
+    await writeFile(filePath, JSON.stringify(data));
+  } catch (error) {
+    console.log(`Error: ${error.message}`);
+    process.exit(0);
+  }
+}
+
+async function inquirerAsync(questions) {
+  try {
+    const answers = await prompt(questions);
+    return answers;
+  } catch (error) {
+    console.log(`Error: ${error.message}`);
+    process.exit(0);
+  }
+}
 
 // TODO: Create a function to initialize app
 async function init() {
-  try {
-    const answers = await inquirer.prompt(questions);
-    console.log(answers);
-  } catch (error) {
-    console.log('Error: ', error);
-  }
+  const answers = await inquirerAsync(questions);
+  await writeToFile('README.md', answers);
+  console.log(answers);
 }
 
 // Function call to initialize app
