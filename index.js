@@ -39,8 +39,12 @@ const questions = [
 // TODO: Create a function to write README file
 async function writeToFile(fileName, data) {
   const filePath = `./output/${fileName}`;
+  let output = '';
   try {
-    await writeFile(filePath, JSON.stringify(data));
+    for (key in data) {
+      output += `#${key}\n${data[key]}\n\n`;
+    }
+    await writeFile(filePath, output);
   } catch (error) {
     console.log(`Error: ${error.message}`);
     process.exit(0);
@@ -60,7 +64,8 @@ async function inquirerAsync(questions) {
 // TODO: Create a function to initialize app
 async function init() {
   const answers = await inquirerAsync(questions);
-  await writeToFile('README.md', answers);
+  const fileName = 'README.md';
+  await writeToFile(fileName, answers);
   console.log(answers);
 }
 
