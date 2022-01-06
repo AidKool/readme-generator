@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 const { prompt } = require('inquirer');
 const { writeFile } = require('fs').promises;
+const { generateMarkdown } = require('./utils/generateMarkdown');
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -49,11 +50,6 @@ const questions = [
     type: 'input',
     message: 'Enter your email address:',
     name: 'email',
-  },
-  {
-    type: 'input',
-    message: 'Enter your file name:',
-    name: 'filename',
   },
 ];
 
