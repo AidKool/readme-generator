@@ -6,33 +6,54 @@ const { writeFile } = require('fs').promises;
 const questions = [
   {
     type: 'input',
-    message: 'Enter your project title:',
+    message: 'Enter project title:',
     name: 'title',
   },
   {
     type: 'input',
-    message: 'Enter your project description:',
-    name: 'description',
+    message: 'Enter project description:',
+    name: 'Description',
   },
   {
     type: 'input',
-    message: 'Enter your project installation instructions:',
+    message: 'Enter project installation instructions:',
     name: 'installation',
   },
   {
     type: 'input',
-    message: 'Enter your project usage information:',
+    message: 'Enter project usage information:',
     name: 'usage',
   },
   {
     type: 'input',
-    message: 'Enter your project contribution guidelines:',
+    message: 'Enter project contribution guidelines:',
     name: 'contribution',
   },
   {
     type: 'input',
-    message: 'Enter your project test instructions:',
+    message: 'Enter project test instructions:',
     name: 'test',
+  },
+  {
+    type: 'list',
+    message: 'Enter project license:',
+    choices: ['none', 'MIT', 'Apache 2.0', 'ISC', 'GPL 3.0'],
+    name: 'license',
+  },
+  {
+    type: 'input',
+    message: 'Enter your Github username:',
+    name: 'username',
+  },
+  {
+    type: 'input',
+    message: 'Enter your email address:',
+    name: 'email',
+  },
+  {
+    type: 'input',
+    message: 'Enter your file name:',
+    name: 'filename',
   },
 ];
 
