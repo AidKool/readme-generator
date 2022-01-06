@@ -1,42 +1,41 @@
 
   ## Project Title
 
-  title 4
+  readme 2
 
-  undefined
+  [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
 
   ## Description
 
-  descr 4
+  des 2
 
   ## Table of Contents
 
   ## Installation
 
-  install 4
+  ins 2
 
   ## Usage
 
-  use 4
+  use 2
 
   ## License
-
-  none
+Project licensed under the [ISC](#license) license
 
   ## Contributing
 
-  contr 4
+  con 2
 
   ## Tests
 
-  test 4
+  test 2
 
   ---
   ## Questions
 
   Contact me at
-  
-  Github: [@aidkool](https://github.com/aidkool)
 
-  Email: fe@fem.com
+  Github: [@gre](https://github.com/gre)
+
+  Email: few@j.com
   

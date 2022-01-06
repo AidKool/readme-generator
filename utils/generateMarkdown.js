@@ -2,7 +2,7 @@
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
   switch (license) {
-    case '':
+    case 'none':
       return '';
     case 'MIT':
       return '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)';
@@ -21,7 +21,14 @@ function renderLicenseLink(license) {}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) {
+  switch (license) {
+    case 'none':
+      return '';
+    default:
+      return `## License\nProject licensed under the ${license} license`;
+  }
+}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
@@ -42,8 +49,7 @@ function generateMarkdown(data) {
   ## Usage\n
   ${data.usage}
 
-  ## License\n
-  ${data.license}
+  ${renderLicenseSection(data.license)}
 
   ## Contributing\n
   ${data.contribution}
