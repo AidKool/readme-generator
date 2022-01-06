@@ -57,7 +57,7 @@ async function writeToFile(fileName, data) {
     const output = generateMarkdown(data);
     await writeFile(filePath, output);
   } catch (error) {
-    console.log(`Error: ${error.message}`);
+    console.error(`Error: ${error.message}`);
     process.exit(0);
   }
 }
@@ -66,7 +66,7 @@ async function init() {
   const answers = await prompt(questions);
   const fileName = 'README.md';
   await writeToFile(fileName, answers);
-  console.log(answers);
+  console.error(answers);
 }
 
 // Function call to initialize app
