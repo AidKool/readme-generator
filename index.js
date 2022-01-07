@@ -69,6 +69,8 @@ async function writeToFile(fileName, data) {
     const output = generateMarkdown(data);
     createDirectory(directory);
     await writeFilePromise(filePath, output);
+    console.log(data);
+    console.log('README file generated successfully');
   } catch (error) {
     console.error(`Error: ${error.message}`);
     process.exit(0);
