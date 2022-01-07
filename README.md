@@ -22,7 +22,7 @@ Open a pull request
 
 ## Demo
 
-![README Generator](https://user-images.githubusercontent.com/73796715/148557328-af8dadc5-480f-489f-81ef-b4e7f365811f.gif)
+Live demo [_here_](https://www.youtube.com/watch?v=ECkSs7V1TO8)
 
 ---
 
