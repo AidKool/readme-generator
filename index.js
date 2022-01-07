@@ -1,6 +1,10 @@
-const { prompt } = require('inquirer');
-const { writeFile } = require('fs').promises;
+const inquirer = require('inquirer');
+const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown');
+const util = require('util');
+const path = require('path');
+
+const writeFilePromise = util.promisify(fs.writeFile);
 
 const questions = [
   {
@@ -51,11 +55,20 @@ const questions = [
   },
 ];
 
+function createDirectory(directory) {
+  const fullPath = path.join(__dirname, directory);
+  if (!fs.existsSync(fullPath)) {
+    fs.mkdirSync(fullPath);
+  }
+}
+
 async function writeToFile(fileName, data) {
-  const filePath = `./output/${fileName}`;
+  const directory = 'output';
+  const filePath = path.join(__dirname, directory, fileName);
   try {
     const output = generateMarkdown(data);
-    await writeFile(filePath, output);
+    createDirectory(directory);
+    await writeFilePromise(filePath, output);
   } catch (error) {
     console.error(`Error: ${error.message}`);
     process.exit(0);
@@ -63,10 +76,9 @@ async function writeToFile(fileName, data) {
 }
 
 async function init() {
-  const answers = await prompt(questions);
+  const answers = await inquirer.prompt(questions);
   const fileName = 'README.md';
   await writeToFile(fileName, answers);
-  console.error(answers);
 }
 
 // Function call to initialize app
