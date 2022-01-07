@@ -18,7 +18,7 @@ function renderLicenseLink(license) {
     case 'none':
       return '';
     default:
-      return '* [License](#license)\n';
+      return '- [License](#license)\n';
   }
 }
 
@@ -27,46 +27,45 @@ function renderLicenseSection(license) {
     case 'none':
       return '';
     default:
-      return `## License\nProject licensed under the ${license} license`;
+      return `## License\n\nProject licensed under the ${license} license`;
   }
 }
 
 function generateMarkdown(data) {
-  let output = `
-  # ${data.title}\n
+  let output = `# ${data.title}
 
-  ${renderLicenseBadge(data.license)}
+${renderLicenseBadge(data.license)}
 
-  ## Description\n
-  ${data.description}
+## Description\n
+${data.description}
 
-  ## Table of Contents\n
-  * [Installation](#installation)\n
-  * [Usage](#usage)\n
-  ${renderLicenseLink(data.license)}
-  * [Contributing](#contributing)\n
-  * [Tests](#tests)\n
+## Table of Contents\n
+- [Installation](#installation)\n
+- [Usage](#usage)\n
+${renderLicenseLink(data.license)}
+- [Contributing](#contributing)\n
+- [Tests](#tests)
 
-  ## Installation\n
-  ${data.installation}
+## Installation\n
+${data.installation}
 
-  ## Usage\n
-  ${data.usage}
+## Usage\n
+${data.usage}
 
-  ${renderLicenseSection(data.license)}
+${renderLicenseSection(data.license)}
 
-  ## Contributing\n
-  ${data.contribution}
+## Contributing\n
+${data.contribution}
 
-  ## Tests\n
-  ${data.test}
+## Tests\n
+${data.test}
 
-  ---
-  ## Questions\n
-  Contact me at\n
-  Github: [@${data.username}](https://github.com/${data.username})\n
-  Email: ${data.email}
-  `;
+---\n
+## Questions\n
+Contact me at\n
+Github: [@${data.username}](https://github.com/${data.username})\n
+Email: ${data.email}
+`;
 
   return output;
 }
